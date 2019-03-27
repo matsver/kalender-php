@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css">
   <title>Game Planner</title>
 </head>
 
@@ -25,7 +24,7 @@ if($conn->connect_errno)
 $sql = "SELECT * FROM `games`";
 $result = $conn->query($sql);
 ?>
-  <?php include 'components/nav.php';?>
+  <?php include 'nav.php';?>
   <div class="container my-12 mx-auto px-4 md:px-12">
     <div class="flex flex-wrap -mx-1 lg:-mx-4">
     <?php 
@@ -41,7 +40,7 @@ $result = $conn->query($sql);
         $max = $row["max_players"];
         $desc = $row["description"];
         $tijd = $row["play_minutes"];
-        include 'components/card.php';
+        include 'card.php';
     }
 }
 else

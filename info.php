@@ -56,7 +56,7 @@ if($conn->connect_errno)
                   </div>
                   <div class="mb-8">
                       <a href="<?=$url?>" target="_blank">
-                          <img src="../img/<?=$image?>" alt="<?=$name?>" style="width: 300px;">
+                          <img src="img/<?=$image?>" alt="<?=$name?>" style="width: 300px;">
                       </a>
                   </div>
                   <div class="mb-4">
