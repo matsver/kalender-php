@@ -7,6 +7,9 @@
       <a href="index.php" class="mt-8 text-lg no-underline block lg:inline-block lg:mt-1 hover:text-white mr-4 text-white ">
         Home
       </a>
+      <a href="planningen.php" class="mt-8 text-lg no-underline block lg:inline-block lg:mt-1 hover:text-white mr-4 text-white ">
+        Planningen
+      </a>
       </div>
       <div>
         <a href="plan.php"

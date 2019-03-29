@@ -67,25 +67,7 @@ if($conn->connect_errno)
     </div>
   </div>
   <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-full md:w-6/5 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
-        Spelers
-      </label>
-      <button class="p-2 bg-purple hover:bg-purple-light text-white font-bold border-b-4 border-purple-dark hover:border-purple rounded w-full block md:w-5/5" onclick="addNew();return false;">add</button>
-      <script>
-      var i = 1;
-      function addNew() {
-        i++;
-        var txtNewInputBox = document.createElement('div');
-        txtNewInputBox.innerHTML = '<input class="mt-2 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-person-' + i + '"type="text" placeholder="" name="grid-person-' + i + '">';
-        document.getElementById("inner").appendChild(txtNewInputBox);
-      }
-      </script>
-      <div id="inner">
-      <input class="mt-2 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-person-1" type="text" placeholder="" name="grid-person-1">
-    </div>
-    <input class=" mt-5 p-2 bg-purple hover:bg-purple-light text-white font-bold border-b-4 border-purple-dark hover:border-purple rounded w-full block md:w-5/5" type="submit">
-    </div>
+    <input class="mt-2 p-2 bg-purple hover:bg-purple-light text-white font-bold border-b-4 border-purple-dark hover:border-purple rounded w-full block md:w-5/5" type="submit">
   </div>
   </form>
 </body>
