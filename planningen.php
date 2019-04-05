@@ -19,7 +19,7 @@ if($conn->connect_errno)
     pritnf("Connect failed: %s\n", $conn->conncet_error);
     exit();
 }
-$sql = "SELECT * FROM `planning`";
+$sql = "SELECT *, (SELECT image FROM `games` where name=planning.naam) as image FROM `planning`";
 $result = $conn->query($sql);
 ?>
   <?php include 'nav.php';?>
@@ -32,12 +32,11 @@ $result = $conn->query($sql);
     while($row = $result->fetch_assoc())
     {
         $id = $row["id"];
-        $name= $row["naam"];
-        $image = $row["start_time"];
-        $min = $row["end_time"];
-        $max = $row["uitlegger"];
-        $desc = $row["description"];
-        $tijd = $row["play_minutes"];
+        $naam = $row["naam"];
+        $image = $row["image"];
+        $start = $row["start_time"];
+        $end = $row["end_time"];
+        $uitlegger = $row["uitlegger"];
         include 'plancomponent.php';
     }
 }
