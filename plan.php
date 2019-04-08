@@ -1,14 +1,5 @@
-  <?php 
-$sqlHost = 'localhost';
-$sqlUser = 'root';
-$sqlPass = 'mysql';
-
-$conn = new mysqli($sqlHost, $sqlUser, $sqlPass, 'kalender');
-if($conn->connect_errno)
-{
-    pritnf("Connect failed: %s\n", $conn->conncet_error);
-    exit();
-}
+<?php 
+  include 'connect.php';
   $sql = "SELECT * FROM `games`";
   $result = $conn->query($sql);
 ?>
@@ -27,18 +18,16 @@ if($conn->connect_errno)
   <div class="w-full max-w-lg container mx-auto mt-10">
   <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="planner.php" method="post">
   <div class="relative">
-        <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-state" name="selector">
-        <?php
-         if($result->num_rows > 0)
-{
-    while($row = $result->fetch_assoc())
-    {
+  <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-state" name="selector">
+<?php
+  if($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
       $name = $row["name"];
       ?> <option><?=$name ?></option>
       <?php
     }
 }
-        ?>
+?>
         </select>
         <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
