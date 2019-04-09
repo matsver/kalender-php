@@ -5,7 +5,7 @@
     </a>
     <header class="flex items-center justify-between leading-tight p-2 md:p-4">
       <h1 class="text-lg">
-        <a class="hover:underline text-black" href="#"><?=$name?></a>
+        <a class="hover:underline text-black" href="info.php?id=<?php echo urlencode($id)?>"><?=$name?></a>
       </h1>
     </header>
     <p class="mx-4 text-grey-darker text-sm">
@@ -15,7 +15,7 @@
         Maximale spelers: <?=$max?>
       </p>
     <footer class="flex items-center justify-between leading-none p-2 md:p-4">
-      <a class="flex items-center no-underline hover:underline text-black" href="#">
+      <a class="flex items-center no-underline hover:underline text-black" href="info.php?id=<?php echo urlencode($id)?>">
         <p class="ml-2 text-sm">
           Speeltijd: <?=$tijd?> Minuten
         </p>

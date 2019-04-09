@@ -1,11 +1,11 @@
 <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
   <article class="overflow-hidden rounded-lg shadow-lg">
-    <a href="convertToId.php?name=<?php echo urlencode($naam)?>">
+    <a href="convertToId.php?name=<?php echo urlencode($naam)?>&spelers=<?=$spelers?>">
       <img alt="<?=$image?>" class="block h-auto w-full" src="img/<?=$image?>" style="height: 300px;">
     </a>
     <header class="flex items-center justify-between leading-tight p-2 md:p-4">
       <h1 class="text-lg">
-        <a class="hover:underline text-black" href="#"><?=$naam?></a>
+        <a class="hover:underline text-black" href="convertToId.php?name=<?php echo urlencode($naam)?>"><?=$naam?></a>
       </h1>
     </header>
     <p class="mx-4 text-grey-darker text-sm">

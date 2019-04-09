@@ -1,4 +1,5 @@
 <?php 
+header("Content-Type: text/html; charset=ISO-8859-1");
     include 'connect.php';
     $id = $_GET["id"];
     $sql = "SELECT * FROM `games` WHERE id = '$id'";
@@ -30,6 +31,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <title>Info | <?=$name?></title>
@@ -39,6 +41,17 @@
     <div class="container mx-auto flex-wrap flex">
         <div class="w-full mt-10">
             <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
+<?php 
+if ($_GET["spelers"] != "") {
+    echo '<p class="font-bold text-center text-grey-darker block mb-2 text-xl">Spelers</p>';
+    $speler = $_GET["spelers"];
+    $spelersarray = explode(',', $speler);
+    foreach($spelersarray as $player) {
+        $player = trim($player);
+        echo '<div class="text-grey-darker text-center bg-grey-light p-2">' . $player . '</div>';
+    }
+}
+?>
                 <div class="w-2/5 p-2">
                     <div class="text-grey-darker text-center bg-grey-light p-2">Minimale Spelers: <?=$min?></div>
                     <div class="text-grey-darker text-center bg-grey-light p-2">Maximale Spelers: <?=$max?></div>

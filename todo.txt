@@ -1,2 +1,1 @@
 SQL injection Prevention
-Spelers toevoegen aan een planning

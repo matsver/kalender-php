@@ -26,6 +26,7 @@ if($result->num_rows > 0)
     {
         while($row = $result->fetch_assoc())
         {
+            $spelers = $row["spelers"];
             $id = $row["id"];
             $naam = $row["naam"];
             $image = $row["image"];
