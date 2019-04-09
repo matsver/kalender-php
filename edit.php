@@ -12,6 +12,7 @@ $sql = "SELECT * FROM `planning` WHERE id = '$id'";
             $start = $row["start_time"];
             $end = $row["end_time"];
             $uitlegger = $row["uitlegger"];
+            $spelers = $row["spelers"];
         }
     } else {
         echo "Not found";
@@ -86,6 +87,14 @@ $sql = "SELECT * FROM `planning` WHERE id = '$id'";
             id="grid-password" type="text" value="<?=$uitlegger?>" name="uitleg">
         </div>
       </div>
+          <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+        Spelers
+      </label>
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-spelers" type="text" value="<?=$spelers?>" placeholder="henk, pieter, jan" name="speler">
+    </div>
+  </div>
       <div class="flex flex-wrap -mx-3 mb-2">
         <input
           class="mt-2 p-2 bg-purple hover:bg-purple-light text-white font-bold border-b-4 border-purple-dark hover:border-purple rounded w-full block md:w-5/5"

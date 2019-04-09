@@ -1,6 +1,6 @@
 <?php 
     include 'connect.php';
-    if ($_POST[selector] == "" || $_POST[start] == "" || $_POST[end] == "" || $_POST[uitleg] == "") {
+    if ($_POST[selector] == "" || $_POST[start] == "" || $_POST[end] == "" || $_POST[uitleg] == "" || $_POST[speler] == "") {
         echo "Error writing to Database";
         header("location: planningen.php?error=empty");
         exit();
@@ -10,7 +10,8 @@
     $start = $_POST["start"];
     $end = $_POST["end"];
     $uitleg = $_POST["uitleg"];
-    $sql = "UPDATE `planning` SET naam = '$name', start_time = '$start', end_time = '$end', uitlegger = '$uitleg' WHERE id='$id'";
+    $speler = $_POST["speler"];
+    $sql = "UPDATE `planning` SET naam = '$name', start_time = '$start', end_time = '$end', uitlegger = '$uitleg', spelers = '$speler' WHERE id='$id'";
     if ($conn->query($sql) === TRUE) {
         header("location: planningen.php");
         exit();

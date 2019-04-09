@@ -43,16 +43,20 @@ header("Content-Type: text/html; charset=ISO-8859-1");
             <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
 <?php 
 if ($_GET["spelers"] != "") {
+
     echo '<p class="font-bold text-center text-grey-darker block mb-2 text-xl">Spelers</p>';
     $speler = $_GET["spelers"];
     $spelersarray = explode(',', $speler);
     foreach($spelersarray as $player) {
         $player = trim($player);
-        echo '<div class="text-grey-darker text-center bg-grey-light p-2">' . $player . '</div>';
+        echo '<div class="w-1/3 mb-4 h-12 text-grey-darker text-center bg-grey-light p-2">' . $player . '</div>';
     }
 }
 ?>
-                <div class="w-2/5 p-2">
+</div>
+<div class="container mx-auto flex-wrap flex">
+        <div class="w-full mt-10">
+<div class="w-6/6 p-3">
                     <div class="text-grey-darker text-center bg-grey-light p-2">Minimale Spelers: <?=$min?></div>
                     <div class="text-grey-darker text-center bg-grey-light p-2">Maximale Spelers: <?=$max?></div>
                     <div class="text-grey-darker text-center bg-grey-light p-2">UitlegTijd Spelers: <?=$explain?>
