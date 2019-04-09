@@ -57,7 +57,7 @@
     </div>
   </div>
   <div class="flex flex-wrap -mx-3 mb-2">
-    <input class="mt-2 p-2 bg-purple hover:bg-purple-light text-white font-bold border-b-4 border-purple-dark hover:border-purple rounded w-full block md:w-5/5" type="submit">
+    <input class="mt-2 p-2 bg-purple hover:bg-purple-light text-white font-bold border-b-4 border-purple-dark hover:border-purple rounded w-full block md:w-5/5" type="submit" value="Make">
   </div>
   </form>
 </body>

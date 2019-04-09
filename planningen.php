@@ -1,6 +1,6 @@
 <?php 
     include 'connect.php';
-    $sql = "SELECT *, (SELECT image FROM `games` where name=planning.naam) as image FROM `planning`";
+    $sql = "SELECT *, (SELECT image FROM `games` where name=planning.naam) as image FROM `planning` ORDER BY start_time";
     $result = $conn->query($sql);
 ?>
 
