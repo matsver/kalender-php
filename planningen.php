@@ -10,6 +10,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
   <title>Planningen</title>
 </head>
@@ -33,7 +35,11 @@ if($result->num_rows > 0)
             include 'plancomponent.php';
         }
     } else {
-        echo "0 results";
+        if ($_GET["error"] == "empty") {
+            echo "Je bent iets vergeten in te vullen!";
+        } else {
+            echo "Er zijn nog geen planning gemaakt";
+        }
     }
 ?>
 </body>

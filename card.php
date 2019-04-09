@@ -8,10 +8,10 @@
         <a class="hover:underline text-black" href="#"><?=$name?></a>
       </h1>
     </header>
-    <p class="text-grey-darker text-sm">
+    <p class="mx-4 text-grey-darker text-sm">
         Minimale spelers: <?=$min?>
       </p>
-    <p class="text-grey-darker text-sm">
+    <p class="mx-4 text-grey-darker text-sm">
         Maximale spelers: <?=$max?>
       </p>
     <footer class="flex items-center justify-between leading-none p-2 md:p-4">
@@ -19,10 +19,6 @@
         <p class="ml-2 text-sm">
           Speeltijd: <?=$tijd?> Minuten
         </p>
-      </a>
-      <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
-        <span class="hidden">Like</span>
-        <i class="fa fa-heart"></i>
       </a>
     </footer>
   </article>

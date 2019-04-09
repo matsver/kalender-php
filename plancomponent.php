@@ -20,9 +20,9 @@
           Uitlegger: <?=$uitlegger?>
         </p>
       </a>
-      <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+      <a href="delete.php?id=<?=$id?>" class="no-underline text-grey-darker hover:text-red-dark" href="#">
         <span class="hidden">Like</span>
-        <i class="fa fa-heart"></i>
+        <i class="far fa-lg fa-times-circle"></i>
       </a>
     </footer>
   </article>
