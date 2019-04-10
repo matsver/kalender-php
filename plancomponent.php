@@ -5,7 +5,7 @@
     </a>
     <header class="flex items-center justify-between leading-tight p-2 md:p-4">
       <h1 class="text-lg">
-        <a class="hover:underline text-black" href="convertToId.php?name=<?php echo urlencode($naam)?>"><?=$naam?></a>
+        <a class="hover:underline text-black" href="convertToId.php?name=<?php echo urlencode($naam)?>&spelers=<?=$spelers?>"><?=$naam?></a>
       </h1>
     </header>
     <p class="mx-4 text-grey-darker text-sm">

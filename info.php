@@ -27,58 +27,64 @@ header("Content-Type: text/html; charset=ISO-8859-1");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <title>Info | <?=$name?></title>
 </head>
+
 <body>
-    <?php include 'nav.php' ?>
+    <?php include 'nav.php'; ?>
     <div class="container mx-auto flex-wrap flex">
         <div class="w-full mt-10">
-            <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
-<?php 
-if ($_GET["spelers"] != "") {
-
-    echo '<p class="font-bold text-center text-grey-darker block mb-2 text-xl">Spelers</p>';
-    $speler = $_GET["spelers"];
-    $spelersarray = explode(',', $speler);
-    foreach($spelersarray as $player) {
-        $player = trim($player);
-        echo '<div class="w-1/3 mb-4 h-12 text-grey-darker text-center bg-grey-light p-2">' . $player . '</div>';
-    }
-}
-?>
-</div>
-<div class="container mx-auto flex-wrap flex">
-        <div class="w-full mt-10">
-<div class="w-6/6 p-3">
-                    <div class="text-grey-darker text-center bg-grey-light p-2">Minimale Spelers: <?=$min?></div>
-                    <div class="text-grey-darker text-center bg-grey-light p-2">Maximale Spelers: <?=$max?></div>
-                    <div class="text-grey-darker text-center bg-grey-light p-2">UitlegTijd Spelers: <?=$explain?>
-                    </div>
-                    <div class="text-grey-darker text-center bg-grey-light p-2">SpeelTijd Spelers: <?=$tijd?></div>
-                </div>
-                <div class="mb-8">
-                    <a href="<?=$url?>" target="_blank">
-                        <img src="img/<?=$image?>" alt="<?=$name?>" style="width: 300px;">
-                    </a>
-                </div>
-                <div class="mb-4">
-                    <a href="<?=$url?>" class="no-underline hover:underline">
-                        <p class="font-bold text-grey-darker block mb-2 text-xl"><?=$name?> - <?=$skill?></p>
-                    </a>
+            <div class="text-center w-6/6 p-3 rounded overflow-hidden shadow-lg">
+            <?php if (isset($_GET["spelers"])) {
+                echo '<h1>Spelers</h1><div class="flex flex-wrap text-xl text-white bg-purple shadow-md -mx-px overflow-hidden sm:-mx-2 md:-mx-2 lg:-mx-1 xl:-mx-2">';
+                $spelers = $_GET["spelers"];
+                $spelersArray = explode(",", $spelers);
+                foreach ($spelersArray as $speler ) {
+                    echo '<div class="my-px px-px w-1/2 overflow-hidden sm:my-2 sm:px-2 md:my-2 md:px-2 md:w-full lg:my-1 lg:px-1 lg:w-1/2 xl:my-2 xl:px-2">'.$speler.'</div>';
+                }
+                echo '</div>';
+            }?>
+                <a href="<?=$url?>" class="no-underline text-black">
+                    <img class="w-1/5" src="img/<?=$image?>" alt="<?=$name?>">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2"><?=$name?></div>
+                        <div class="font-bold text-xl mb-2">Skills:
+                            <?php $newstring = str_replace(";", " | ", $skill); echo $newstring; ?></div>
+                </a>
+                <p class="text-grey-darker text-base">
                     <?=$desc?>
-                </div>
-                <div class="flex items-center justify-between w-1/2">
+                </p>
+                <div class="mt-10">
                     <?=$iframe?>
+                </div>
+                <div class="px-6 py-4">
+                    <span
+                        class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-xl font-semibold text-grey-darker mr-2">Minimale
+                        spelers: <?=$min?></span>
+                    <span
+                        class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-xl font-semibold text-grey-darker mr-2">Maximale
+                        spelers: <?=$max?></span>
+                    <span
+                        class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-xl font-semibold text-grey-darker mr-2">Speeltijd:
+                        <?=$tijd?> Minuten</span>
+                    <span
+                        class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-xl font-semibold text-grey-darker">Uitlegtijd:
+                        <?=$explain?> Minuten</span>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    </div>
 </body>
+
 </html>
