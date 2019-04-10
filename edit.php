@@ -4,16 +4,20 @@ include 'connect.php';
 
 $id = $_GET["id"];
 
-  $stmt = $pdo->prepare('SELECT * FROM `planning` WHERE id = :id');
-  $stmt->execute(array('id' => $id));
+$sql = "SELECT * FROM `planning` WHERE id = '$id'";
     $result = $conn->query($sql);
-    foreach ($stmt as $row) {
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
             $name= $row["naam"];
             $start = $row["start_time"];
             $end = $row["end_time"];
             $uitlegger = $row["uitlegger"];
             $spelers = $row["spelers"];
         }
+    } else {
+        echo "Not found";
+        header("location: planningen.php");
+    }
   $sqlGames = "SELECT * FROM `games`";
   $resultGames = $conn->query($sqlGames);
 ?>

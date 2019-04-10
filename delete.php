@@ -3,9 +3,7 @@
     $id = $_GET["id"];
     $stmt = $pdo->prepare('DELETE FROM planning WHERE id = :id');
     $stmt->execute(array('id' => $id));
-    foreach ($stmt as $row) {
-        header("location: planningen.php");
-        exit();
-}
+    header("location: planningen.php");
+    exit();
 $conn->close();
 ?>
