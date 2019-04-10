@@ -39,9 +39,12 @@ if($result->num_rows > 0)
         if ($_GET["error"] == "empty") {
             echo "Je bent iets vergeten in te vullen!";
         } else {
-            echo "Er zijn nog geen planning gemaakt";
+            echo '</div><div class="bg-red-lightest border border-red-light text-red-dark px-4 py-3 rounded relative" role="alert">
+  <span class="block sm:inline">Je hebt nog niks toegevoegd aan de planning!</span>
+</div>';
         }
     }
 ?>
+</div>
 </body>
 </html>
