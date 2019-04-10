@@ -2,10 +2,9 @@
 header("Content-Type: text/html; charset=ISO-8859-1");
     include 'connect.php';
     $id = $_GET["id"];
-    $sql = "SELECT * FROM `games` WHERE id = '$id'";
-    $result = $conn->query($sql);
-    if($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
+    $stmt = $pdo->prepare('SELECT * FROM games WHERE id = :id');
+    $stmt->execute(array('id' => $id));
+    foreach ($stmt as $row) {
             $id = $row["id"];
             $name= $row["name"];
             $image = $row["image"];
@@ -18,10 +17,6 @@ header("Content-Type: text/html; charset=ISO-8859-1");
             $skill = $row["skills"];
             $url = $row["url"];
         }
-    } else {
-        echo "Not found";
-        header("location: index.php");
-    }
 ?>
 
 
@@ -46,7 +41,7 @@ header("Content-Type: text/html; charset=ISO-8859-1");
             <div class="text-center w-6/6 p-3 rounded overflow-hidden shadow-lg">
             <?php if (isset($_GET["spelers"])) {
                 echo '<h1>Spelers</h1><div class="flex flex-wrap text-xl text-white bg-purple shadow-md -mx-px overflow-hidden sm:-mx-2 md:-mx-2 lg:-mx-1 xl:-mx-2">';
-                $spelers = $_GET["spelers"];
+                $spelers = htmlspecialchars($_GET["spelers"], ENT_QUOTES, 'UTF-8');
                 $spelersArray = explode(",", $spelers);
                 foreach ($spelersArray as $speler ) {
                     echo '<div class="my-px px-px w-1/2 overflow-hidden sm:my-2 sm:px-2 md:my-2 md:px-2 md:w-full lg:my-1 lg:px-1 lg:w-1/2 xl:my-2 xl:px-2">'.$speler.'</div>';

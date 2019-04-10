@@ -11,12 +11,11 @@
     $end = $_POST["end"];
     $uitleg = $_POST["uitleg"];
     $speler = $_POST["speler"];
-    $sql = "UPDATE `planning` SET naam = '$name', start_time = '$start', end_time = '$end', uitlegger = '$uitleg', spelers = '$speler' WHERE id='$id'";
-    if ($conn->query($sql) === TRUE) {
+    $stmt = $pdo->prepare('UPDATE `planning` SET naam = :name, start_time = :start, end_time = :end, uitlegger = :uitleg, spelers = :speler WHERE id = :id);
+    $stmt->execute(array('':name' => $name, ':start' => $start, ':end' => $end, ':uitleg' => $uitleg, ':speler' => $speler, ':id' => $id));
+    foreach ($stmt as $row) {
         header("location: planningen.php");
         exit();
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+    }
 $conn->close();
 ?>

@@ -1,11 +1,11 @@
 <?php 
     include 'connect.php';
-    $sql = "DELETE FROM planning WHERE id = '".$_GET['id']."'";
-    if ($conn->query($sql) === TRUE) {
+    $id = $_GET["id"];
+    $stmt = $pdo->prepare('DELETE FROM planning WHERE id = :id');
+    $stmt->execute(array('id' => $id));
+    foreach ($stmt as $row) {
         header("location: planningen.php");
         exit();
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
 ?>
